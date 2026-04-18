@@ -8,8 +8,8 @@ const BREAK_TIME = 2;
 const LONGER_BREAK_TIME = 5;
 function App() {
   const [remainingSessions, setRemainingSessions] = useState(TOTAL_SESSIONS);
-  const [studyTime, setStudyTime] = useState(3);
-  const [breakTime, setBreakTime] = useState(0);
+  const [studyTime, setStudyTime] = useState(STUDY_TIME);
+  const [breakTime, setBreakTime] = useState(BREAK_TIME);
 
   const [breakTimeStart, setBreakTimeStart] = useState(false);
   const [studyTimerStart, setStudyTimerStart] = useState(false);
@@ -37,8 +37,6 @@ function App() {
 
     return () => clearInterval(studyTimer);
   }, [studyTime, remainingSessions, breakTimeStart, studyTimerStart]);
-
-  // ------------------------------------------------------------
 
   useEffect(() => {
     let breakTimer: number;
